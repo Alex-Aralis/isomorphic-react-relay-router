@@ -1,0 +1,26 @@
+{
+  "name": "isomorphic-react-relay-router",
+  "version": "0.0.0",
+  "description": "an isomorphic react app using router and relay",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Alex-Aralis/isomorphic-react-relay-router.git"
+  },
+  "keywords": [
+    "react",
+    "react-relay",
+    "react-router",
+    "isomorphic",
+    "SPA"
+  ],
+  "author": "Alex Aralis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alex-Aralis/isomorphic-react-relay-router/issues"
+  },
+  "homepage": "https://github.com/Alex-Aralis/isomorphic-react-relay-router#readme"
+}
