@@ -5,7 +5,7 @@ import renderServerSide from './renderServerSide';
 
 const app = express();
 
-app.set('views', '../views');
+app.set('views', '../../views');
 app.set('view engine', 'jade');
 
 import routes from '../routes';
