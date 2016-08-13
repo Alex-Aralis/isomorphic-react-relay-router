@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { injectPreparedData } from 'isomorphic-relay';
-import { prepareInitialRender } from 'isomophic-relay-router';
+import { prepareInitialRender } from 'isomorphic-relay-router';
 import { browserHistory, match, Router } from 'react-router';
 import { Environment, DefaultNetworkLayer } from 'react-relay';
 import routes from '../routes';
