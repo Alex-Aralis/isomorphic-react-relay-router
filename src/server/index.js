@@ -1,5 +1,4 @@
-require('dotenv').load();
-
+import { APP_URL, APP_PORT as PORT } from '../config';
 import express from 'express';
 import graphQLHTTP from 'exress-graphql';
 import renderServerSide from './renderServerSide';
@@ -25,9 +24,6 @@ app.get('/js/app.js', (req, res) => {
 
 app.get('/*', renderServerSide);
 
-app.listen(APP_PORT, () => {
-  console.log(`
-    App is now being served from
-    http://localhost:${process.env.APP_PORT}.
-  `);
+app.listen(PORT, () => {
+  console.log(`App is now being served from ${APP_URL}`);
 });

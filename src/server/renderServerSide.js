@@ -1,21 +1,13 @@
-require('dotenv').load();
-
+import { GRAPHQL_URL } from '../config';
 import { prepareData, render as relayRender } from 'isomorphic-relay-router';
-import path from 'path';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match } from 'react-router';
 import { DefaultNetworkLayer } from 'react-relay';
 import routes from '../routes';
 
-const {
-  APP_PROTOCOL: PROTOCOL,
-  APP_DOMAIN: DOMAIN,
-  APP_PORT: PORT
-} = process.env;
-
 const networkLayer = new DefaultNetworkLayer(
-  `${PROTOCOL}://${DOMAIN}:${PORT}/graphql`,
+  GRAPHQL_URL,
 );
 
 export default (req, res, next) => {
