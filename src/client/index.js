@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { injectPreparedData } from 'isomorphic-relay';
-import { prepareInitialRender } from 'isomorphic-relay-router';
+import IsomorphicRelay from 'isomorphic-relay';
+import IsomorphicRelayRouter from 'isomorphic-relay-router';
 import { browserHistory, match, Router } from 'react-router';
 import { Environment, DefaultNetworkLayer } from 'react-relay';
 import routes from '../routes';
@@ -13,13 +13,13 @@ environment.injectNetworkLayer(new DefaultNetworkLayer('/graphql'));
 
 const data = JSON.parse(document.getElementById('preloadedData').textContent);
 
-injectPreparedData(environment, data);
+IsomorphicRelay.injectPreparedData(environment, data);
 
 const rootElement = document.getElementById('app');
 
 match({routes, history: browserHistory },
   (error, redirectLocation, renderProps) => {
-    prepareInitialRender(environment, renderProps)
+    IsomorphicRelayRouter.prepareInitialRender(environment, renderProps)
       .then(props => {
         render(<Router {...props} />, rootElement);
       });
