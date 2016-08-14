@@ -8,7 +8,7 @@
     "prebuild": "npm run clean && npm run update-schema-json",
     "update-schema-json": "mkdir -p build/data && babel-node scripts/updateSchemaJSON",
     "build": "npm run prebuild && babel -d build/lib src && webpack --config production.webpack.config.js --progress --color",
-    "serve": "npm run build && cd build && node lib/server",
+    "serve": "npm run build && cd build && PRODUCTION=true node lib/server",
     "clean": "touch build && rm -rv build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,9 +1,8 @@
 import express from 'express';
 import graphQLHTTP from 'express-graphql';
 import renderServerSide from './renderServerSide';
-import { APP_PORT, APP_URL } from '../config';
+import { APP_PORT, APP_URL, PRODUCTION } from '../config';
 import schema from '../graphql/schema';
-
 
 const app = express();
 
@@ -15,7 +14,7 @@ import routes from '../routes';
 app.use('/graphql', graphQLHTTP(
   {
     schema,
-    pretty: true,
+    graphiql: true,
   }
 ));
 

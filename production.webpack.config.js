@@ -1,3 +1,4 @@
+// var webpack = require('webpack');
 var DotenvPlugin = require('webpack-dotenv-plugin');
 var CopyPlugin = require('copy-webpack-plugin');
 
