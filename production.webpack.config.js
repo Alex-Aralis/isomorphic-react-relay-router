@@ -4,7 +4,6 @@ var CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: [
-    'babel-polyfill',
     './src/client',
   ],
   output: {
@@ -35,7 +34,10 @@ module.exports = {
       },
       {
         from: '.env',
-      }
+      },
+      {
+        from: 'package.json',
+      },
     ])
   ],
 
