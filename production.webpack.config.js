@@ -1,4 +1,5 @@
 var DotenvPlugin = require('webpack-dotenv-plugin');
+var CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -26,6 +27,15 @@ module.exports = {
       sample: './.env.default',
       path: './.env',
     }),
+    new CopyPlugin([
+      {
+        from: './views',
+        to: 'views',
+      },
+      {
+        from: '.env',
+      }
+    ])
   ],
 
 };

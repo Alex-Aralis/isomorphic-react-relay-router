@@ -5,13 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "webpack",
-    "build-utils": "npm run build-update-schema-json",
-    "build-update-schema-json": "webpack --config updateSchemaJSON.webpack.config.js",
     "prebuild": "npm run clean && npm run update-schema-json",
-    "update-schema-json": "mkdir data && babel-node scripts/updateSchemaJSON",
-    "build": "npm run prebuild && node bin/updateSchemaJSON && babel -d lib src && webpack --config production.webpack.config.js --progress --color",
-    "serve": "npm run build && node build/server",
-    "clean": "touch lib build data bin && rm -rv lib build data bin",
+    "update-schema-json": "mkdir -p build/data && babel-node scripts/updateSchemaJSON",
+    "build": "npm run prebuild && babel -d build/lib src && webpack --config production.webpack.config.js --progress --color",
+    "serve": "npm run build && cd build && node lib/server",
+    "clean": "touch build && rm -rv build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

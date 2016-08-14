@@ -21,7 +21,7 @@ app.use('/graphql', graphQLHTTP(
 
 app.get('/js/app.js', (req, res) => {
   res.setHeader('Content-Type', 'application/javascript');
-  res.sendFile('app.js', { root: __dirname });
+  res.sendFile('app.js', { root: process.cwd() });
 });
 
 app.get('/*', renderServerSide);
