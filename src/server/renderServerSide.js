@@ -7,7 +7,7 @@ import { DefaultNetworkLayer } from 'react-relay';
 import routes from '../routes';
 
 const networkLayer = new DefaultNetworkLayer(
-  GRAPHQL_URL,
+  GRAPHQL_URL
 );
 
 export default (req, res, next) => {

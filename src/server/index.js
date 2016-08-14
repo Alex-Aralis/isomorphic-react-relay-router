@@ -1,7 +1,9 @@
-import { APP_URL, APP_PORT as PORT } from '../config';
 import express from 'express';
-import graphQLHTTP from 'exress-graphql';
+import graphQLHTTP from 'express-graphql';
 import renderServerSide from './renderServerSide';
+import { APP_PORT, APP_URL } from '../config';
+import schema from '../graphql/schema';
+
 
 const app = express();
 
@@ -24,6 +26,6 @@ app.get('/js/app.js', (req, res) => {
 
 app.get('/*', renderServerSide);
 
-app.listen(PORT, () => {
+app.listen(APP_PORT, () => {
   console.log(`App is now being served from ${APP_URL}`);
 });

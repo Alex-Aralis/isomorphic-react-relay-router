@@ -1,12 +1,13 @@
 var DotenvPlugin = require('webpack-dotenv-plugin');
 
 module.exports = {
+  target: 'node',
   entry: [
-    './src/client',
+    './src/server',
   ],
   output: {
     path: __dirname + '/build',
-    filename: 'app.js',
+    filename: 'server.js',
   },
   resolve: {
     extension: ['', '.js'],
@@ -17,6 +18,10 @@ module.exports = {
         test: /\.jsx?$/,
         loaders: ['babel'],
         exclude: /node_modules/,
+      },
+      {
+        test:  /\.json$/,
+        loader: 'json-loader',
       },
     ],
   },
