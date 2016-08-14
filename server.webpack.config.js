@@ -3,6 +3,7 @@ var DotenvPlugin = require('webpack-dotenv-plugin');
 module.exports = {
   target: 'node',
   entry: [
+    'babel-polyfill',
     './src/server',
   ],
   output: {

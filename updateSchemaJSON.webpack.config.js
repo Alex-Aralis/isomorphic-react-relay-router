@@ -3,11 +3,11 @@ var DotenvPlugin = require('webpack-dotenv-plugin');
 module.exports = {
   entry: [
     'babel-polyfill',
-    './src/client',
+    './scripts/updateSchemaJSON',
   ],
   output: {
-    path: __dirname + '/build',
-    filename: 'app.js',
+    path: __dirname + '/bin',
+    filename: 'updateSchemaJSON.js',
   },
   resolve: {
     extension: ['', '.js'],
