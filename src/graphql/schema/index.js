@@ -21,7 +21,8 @@ import {
   toGlobalId,
 } from 'graphql-relay';
 
-/*
+
+
 var {nodeInterface, nodeField} = nodeDefinitions(
   (globalId) => {
     var {type, id} = fromGlobalId(globalId);
@@ -38,20 +39,30 @@ var {nodeInterface, nodeField} = nodeDefinitions(
     return null;
   }
 );
-*/
+
+var GraphQLEcho = new GraphQLObjectType({
+  name: 'Echo',
+  args: {
+    message: {
+      type: GraphQLString,
+    }
+  },
+  fields: {
+    reponse: {
+      type: GraphQLString,
+      resolve: (obj, args) => {
+        return `echo response: ${ args.message }`;
+      }
+    }
+  },
+  interfacees: [ nodeInterface ],
+});
 
 var query = new GraphQLObjectType({
   name: 'Query',
   fields: {
     echo: {
-      type: GraphQLString,
-      args: {
-        message: {
-          type: GraphQLString,
-          defaultValue: 'NULL',
-        },
-      },
-      resolve: (root, { message }) => `recieved ${message}`,
+      type: GraphQLEcho,
     }
   }
 });
